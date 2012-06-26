@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://tateya.github.com/sitemap.xml
