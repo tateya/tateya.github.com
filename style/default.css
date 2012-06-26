@@ -1,0 +1,254 @@
+@charset "UTF-8";
+
+ul,
+ol {
+  margin: 0; 
+  padding: 0 0 0 1em;
+  list-style: disc inside;
+} 
+
+a:link {
+  color: blue;
+}
+
+a:hover {
+  color: red;
+}
+
+a:visited {
+  color: purple;
+}
+
+img {
+  max-width: 100%;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body > header {
+  margin: 0;
+  padding: 0;
+  background-color: teal;
+}
+
+body > header hgroup {
+  margin: 0;
+  padding: 1em;
+  width: 10em;
+  color: white;
+}
+
+body > header h1 {
+  width: 4.5em;
+  margin: 0 auto;
+  padding: .1em;
+  border: medium solid white;
+  border-radius: .3em;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+body > header h2 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: .6em;
+}
+
+body > header nav {
+  margin: 0;
+  padding: 0;
+  border-style: solid none;
+  border-width: thin;
+  border-color: #999 white black white;
+  background-color: #666;
+  color: #333;
+}
+
+body > header nav ul {
+  margin: 0;
+  padding: .2em 1em;
+}
+
+body > header nav li {
+  display: inline;
+}
+
+body > header nav a:link,
+body > header nav a:visited {
+  color: white;
+}
+
+body > header nav a:hover {
+  color: #ccc;
+}
+
+body > header nav li:not(:first-child)::before {
+  content: " | ";
+}
+
+body > header nav li a {
+  font-weight: bold;
+}
+
+body > nav {
+  margin: 0;
+  padding: .2em 1em;
+  border-bottom: solid thin #ccc;
+  font-size: .95em;
+}
+
+body > nav p {
+  float: left;
+  width: 55%;
+  margin: 0;
+  padding: 0;
+}
+
+body > nav ul {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+body > nav ul::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+body > nav li {
+  display: inline;
+}
+
+body > nav li:not(:first-child)::before {
+  content: " | ";
+}
+
+body > section {
+  float: left;
+  width: 70%;
+  margin: 0;
+  padding: 0;
+}
+
+body > section > p {
+  margin: 0 1em;
+  padding: 0;
+}
+
+body > section > p:first-child {
+  margin-top: 1em;
+}
+
+body > section > section {
+  margin: 1em;
+  border-top: thin dashed #666;
+}
+
+body > section > section > h1 {
+  margin: 1em 0;
+  font-size: 1.3em;
+}
+
+body > section > section > section > h1 {
+  border-bottom: thin solid black;
+  font-size: 1em;
+}
+
+body > section > section figure {
+  float: right;
+  width: 8em;
+}
+
+body > section > section figure ~ *:last-child {
+  text-align: right;
+}
+
+body > section > section figure ~ *:last-child::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+body > section > section nav > p:last-child {
+  text-align: right;
+}
+
+body > aside {
+  float: left;
+  width: 30%;
+  margin: 0;
+  padding: 0;
+  background-color: #f6f6f6;
+}
+
+aside > section {
+  margin: 1em;
+}
+
+aside > section > h1 {
+  border-bottom: thin solid black;
+  font-size: 1em;
+}
+
+aside > section > nav > h1 {
+  margin: 1em 0;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+aside > section > figure {
+  margin: 0;
+  padding: 0;
+}
+
+aside > section > figure img {
+  float: left;
+  width: 4em;
+}
+
+aside > section > figure figcaption {
+  margin: 0;
+  padding: 1em 0;
+  text-indent: .3em;
+  font-weight: bold;
+}
+
+aside > section > figure figcaption::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+body > footer {
+  clear: both;
+  padding: 5em 1em 1em;
+}
+
+footer p,
+footer address,
+footer nav ul {
+  margin: 0;
+  padding: 0;
+  color: #666;
+  font-size: .9em;
+  font-style: normal;
+}
+
+footer nav li {
+  display: inline;
+}
+
+footer nav li:not(:first-child)::before {
+  content: " | ";
+}
