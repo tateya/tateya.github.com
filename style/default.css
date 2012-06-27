@@ -5,7 +5,11 @@ ol {
   margin: 0; 
   padding: 0 0 0 1em;
   list-style: disc inside;
-} 
+}
+
+blockquote {
+  margin: 1em 0 1em 2em;
+}
 
 a:link {
   color: blue;
@@ -21,6 +25,10 @@ a:visited {
 
 img {
   max-width: 100%;
+}
+
+time {
+  font-size: .95em;
 }
 
 html {
