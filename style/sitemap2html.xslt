@@ -18,6 +18,7 @@
               <li><a href="/">ホーム</a></li>
               <li><a href="http://news.tateya.or.jp/">ニュース</a></li>
               <li><a href="/download">ダウンロード</a></li>
+              <li><a href="https://github.com/tateya">プロジェクト</a></li>
               <li><a href="/document">ドキュメント</a></li>
               <li><a href="https://github.com/tateya/tateya.github.com/issues">フォーラム</a></li>
               <li><a href="https://github.com/tateya/tateya.github.com/wiki">Wiki</a></li>
