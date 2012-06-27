@@ -16,10 +16,14 @@ span {
 <p>サーバの障害と思われる場合は、<a href="mailto:webmaster@tateya.or.jp">ウェブ管理者</a>までご連絡ください。</p>
 <section>
   <h1>Error 404</h1>
-  <address><a href="/">www.tateya.or.jp</a><br><span id="time"></span><br><span id="server-name">Nginx</span></address>
+  <address><a href="/">www.tateya.or.jp</a><br><span id="time"></span><br><span id="server-name"></span></address>
 </section>
 <script>
 window.onload = function() {
+  var xhr = new XMLHttpRequest();
   document.getElementById('time').textContent = (new Date()).toUTCString();
+  xhr.open('GET', '', false);
+  xhr.send();
+  document.getElementById('server-name').textContent = xhr.getResponseHeader('server') || 'none';
 };
 </script>
