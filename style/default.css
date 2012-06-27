@@ -230,6 +230,17 @@ aside > section > figure figcaption::after {
   clear: both;
 }
 
+aside > section fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+aside > section fieldset legend {
+  margin: 1em 0;
+  padding: 0;
+}
+
 body > footer {
   clear: both;
   padding: 5em 1em 1em;
