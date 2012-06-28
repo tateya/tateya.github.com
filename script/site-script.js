@@ -28,7 +28,7 @@
       '  <img alt="get ' + name + '" src="' + data.uri.icon + '">',
       '  <figcaption>Please Use ' + name + ' ' + data.version + '</figcaption>',
       '</figure>',
-      '<p>たてや組オススメのブラウザ、<a href="' + data.uri.download + '">' + name + ' ' + data.version + '</a>',
+      '<p>たてや組オススメのブラウザ、<a href="' + data.uri.download + '">' + name + ' ' + data.version + '</a>を是非お使いください!</p>',
       '<p>(ブラウザ判定システムbeta3)</p>'
     ].join('\n'));
   });
