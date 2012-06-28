@@ -1,0 +1,14 @@
+{
+  "Opera": {
+    "uri": "http://www.opera.com/",
+    "version": "12.00"
+  },
+  "w3m": {
+    "uri": "http://w3m.sourceforge.net/",
+    "version": "0.5.3"
+  },
+  "Amaya": {
+    "uri": "http://www.w3.org/Amaya",
+    "version": "11.4.4"
+  }
+}
