@@ -183,6 +183,10 @@ body > section > section > section > h1 {
   font-size: 1em;
 }
 
+body > section > section p {
+  margin: 0;
+}
+
 body > section > section figure {
   float: right;
   width: 8em;
