@@ -47,6 +47,7 @@ body > header {
   padding: 0;
   background-color: teal;
   background-image: url("/style/ttytile.png");
+  background-size: 40px 40px;
 }
 
 body > header hgroup {
