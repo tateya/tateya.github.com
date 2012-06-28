@@ -1,14 +1,23 @@
 {
   "Opera": {
-    "uri": "http://www.opera.com/",
-    "version": "12.00"
+    "version": "12.00",
+    "uri": {
+      "download": "http://www.opera.com/",
+      "icon": "http://media.opera.com/media/images/icon/Opera_512x512.png"
+    }
   },
   "w3m": {
-    "uri": "http://w3m.sourceforge.net/",
-    "version": "0.5.3"
+    "version": "0.5.3",
+    "uri": {
+      "download": "http://w3m.sourceforge.net/",
+      "icon": "http://ssig33.com/gyazo/a148c57b6c9fd0c0a1d095e5fde02c7.png"
+    }
   },
   "Amaya": {
-    "uri": "http://www.w3.org/Amaya",
-    "version": "11.4.4"
+    "version": "11.4.4",
+    "uri": {
+      "download": "http://www.w3.org/Amaya",
+      "icon": "http://www.w3.org/Amaya/Icons/amaya_logo_65x50.png"
+    }
   }
 }
