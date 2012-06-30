@@ -19,5 +19,12 @@
       "download": "http://www.w3.org/Amaya",
       "icon": "http://www.w3.org/Amaya/Icons/amaya_logo_65x50.png"
     }
+  },
+  "影鷹": {
+    "version": "0.4",
+    "url": {
+      "download": "http://www.kagetaka.org/",
+      "icon": "http://www.kagetaka.org/images/title.gif"
+    }
   }
 }
