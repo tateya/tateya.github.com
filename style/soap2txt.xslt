@@ -16,7 +16,8 @@
 </xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:text> is invalid...</xsl:text>
+        <xsl:text> is invalid...
+</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
