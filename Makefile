@@ -1,16 +1,15 @@
 
-.PHONY: all test validate validate-top validate-info
+DIRS = . ./info ./download ./project ./document
+SRCS = $(foreach dir, $(DIRS), $(wildcard $(dir)/*.html))
+
+.PHONY: all test validate
 
 all:
 	@echo "Do nothing."
 
 test: validate
 
-validate: validate-top validate-info
-
-validate-top: $(patsubst %.html, validate/%.xml, $(wildcard *.html))
-
-validate-info: $(patsubst info/%.html, validate/info/%.xml, $(wildcard info/*.html))
+validate: $(patsubst %.html, validate/%.xml, $(SRCS))
 
 validate/%.xml: %.html
 	@test -d `dirname $@` || mkdir -p `dirname $@`
