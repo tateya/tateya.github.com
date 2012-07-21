@@ -187,7 +187,7 @@
           <li><a href="/info">たてや組について</a></li>
           <li><a href="/info/sitemap" type="text/xml">サイトマップ</a></li>
           <li><a href="/info/policy">サイトのご利用にあたって</a></li>
-          <li><a href="/info/concat">お問い合わせ</a></li>
+          <li><a href="/info/contact">お問い合わせ</a></li>
         </ul>
       </div>
     </div>
