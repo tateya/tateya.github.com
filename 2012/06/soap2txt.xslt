@@ -9,16 +9,16 @@
   </xsl:template>
 
   <xsl:template match="m:markupvalidationresponse">
-    <xsl:value-of select="$filename"/>
-    <xsl:choose>
-      <xsl:when test="m:validity = 'true'">
-        <xsl:text> is valid!
-</xsl:text>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:text> is invalid...
-</xsl:text>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:message>
+      <xsl:value-of select="$filename"/>
+      <xsl:choose>
+	<xsl:when test="m:validity = 'true'">
+	  <xsl:text> is valid!</xsl:text>
+	</xsl:when>
+	<xsl:otherwise>
+	  <xsl:text> is invalid...</xsl:text>
+	</xsl:otherwise>
+      </xsl:choose>
+    </xsl:message>
   </xsl:template>
 </xsl:stylesheet>
