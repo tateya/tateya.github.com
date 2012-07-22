@@ -11,10 +11,10 @@
   <xsl:param name="site-title">
     <xsl:choose>
       <xsl:when test="$root-language = 'ja'">
-	<xsl:text>たてや組</xsl:text>
+        <xsl:text>たてや組</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:text>Tateya-gumi</xsl:text>
+        <xsl:text>Tateya-gumi</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:param>
@@ -43,7 +43,7 @@
     </xsl:apply-templates>
     <body>
       <xsl:call-template name="site-header">
-	<xsl:with-param name="page-title" select="$page-title"/>
+        <xsl:with-param name="page-title" select="$page-title"/>
       </xsl:call-template>
       <xsl:apply-templates select="xhtml5:body"/>
       <xsl:call-template name="site-footer">
@@ -55,13 +55,17 @@
   <xsl:template match="xhtml5:head">
     <xsl:param name="page-title"/>
     <xsl:param name="site-home" select="false()"/>
+    <xsl:param name="generator" select="system-property('xsl:vendor')"/>
     <head>
       <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
       <meta content="text/css" http-equiv="Content-Style-Type"/>
       <meta content="application/javascript" http-equiv="Content-Script-Type"/>
+      <xsl:if test="$generator">
+        <meta content="{$generator}" name="generator"/>
+      </xsl:if>
       <xsl:apply-templates select="xhtml5:meta"/>
       <xsl:if test="$page-modified">
-	<meta content="{$page-modified}" name="dcterms.modified"/>
+        <meta content="{$page-modified}" name="dcterms.modified"/>
       </xsl:if>
       <link href="/info/staff" rel="author"/>
       <link href="/info" rel="help"/>
@@ -70,10 +74,10 @@
       <link href="/2012/06/mozilla-gumi.css" rel="stylesheet" type="text/css"/>
       <title>
         <xsl:value-of select="$site-title"/>
-	<xsl:if test="not($site-home)">
+        <xsl:if test="not($site-home)">
           <xsl:text> - </xsl:text>
-	  <xsl:value-of select="$page-title"/>
-	</xsl:if>
+          <xsl:value-of select="$page-title"/>
+        </xsl:if>
       </title>
     </head>
   </xsl:template>
@@ -81,9 +85,9 @@
   <xsl:template match="xhtml5:meta|xhtml5:link">
     <xsl:element name="{local-name()}">
       <xsl:for-each select="@*">
-	<xsl:attribute name="{name()}">
-	  <xsl:value-of select="."/>
-	</xsl:attribute>
+        <xsl:attribute name="{name()}">
+          <xsl:value-of select="."/>
+        </xsl:attribute>
       </xsl:for-each>
     </xsl:element>
   </xsl:template>
@@ -91,7 +95,7 @@
   <xsl:template match="xhtml5:body">
     <div class="article">
       <xsl:apply-templates mode="node-walker" select="*|@*|text()|comment()">
-	<xsl:with-param name="level" select="2"/>
+        <xsl:with-param name="level" select="2"/>
       </xsl:apply-templates>
     </div>
   </xsl:template>
@@ -100,7 +104,7 @@
     <xsl:param name="level"/>
     <xsl:element name="{local-name()}">
       <xsl:apply-templates mode="node-walker" select="*|@*|text()|comment()">
-	<xsl:with-param name="level" select="$level"/>
+        <xsl:with-param name="level" select="$level"/>
       </xsl:apply-templates>
     </xsl:element>
   </xsl:template>
@@ -117,16 +121,16 @@
     <xsl:param name="sectioning" select="local-name() = 'aside'or local-name() = 'nav' or local-name() = 'section'"/>
     <div class="{local-name()}">
       <xsl:apply-templates mode="node-walker" select="*|@*|text()|comment()">
-	<xsl:with-param name="level">
-	  <xsl:choose>
-	    <xsl:when test="$sectioning">
-	      <xsl:value-of select="$level + 1"/>
-	    </xsl:when>
-	    <xsl:otherwise>
-	      <xsl:value-of select="$level"/>
-	    </xsl:otherwise>
-	  </xsl:choose>
-	</xsl:with-param>
+        <xsl:with-param name="level">
+          <xsl:choose>
+            <xsl:when test="$sectioning">
+              <xsl:value-of select="$level + 1"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$level"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:with-param>
       </xsl:apply-templates>
     </div>
   </xsl:template>
@@ -140,12 +144,12 @@
   <xsl:template match="@*" mode="node-walker">
     <xsl:param name="attribute-name">
       <xsl:choose>
-	<xsl:when test="local-name(..) = 'time' and name() = 'datetime'">
-	  <xsl:text>title</xsl:text>
-	</xsl:when>
-	<xsl:otherwise>
-	  <xsl:value-of select="name()"/>
-	</xsl:otherwise>
+        <xsl:when test="local-name(..) = 'time' and name() = 'datetime'">
+          <xsl:text>title</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="name()"/>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:param>
     <xsl:attribute name="{$attribute-name}">
@@ -157,20 +161,20 @@
     <xsl:param name="page-title"/>
     <div class="header">
       <div class="hgroup">
-	<h1>
-	  <xsl:value-of select="$site-title"/>
-	</h1>
-	<h2>The Tateya-gumi</h2>
+        <h1>
+          <xsl:value-of select="$site-title"/>
+        </h1>
+        <h2>The Tateya-gumi</h2>
       </div>
       <div class="nav">
         <ul>
           <li><a href="/">ホーム</a></li>
-	  <li><a href="http://news.tateya.or.jp/">ニュース</a></li>
+          <li><a href="http://news.tateya.or.jp/">ニュース</a></li>
           <li><a href="/download">ダウンロード</a></li>
           <li><a href="https://github.com/tateya">プロジェクト</a></li>
           <li><a href="/document">ドキュメント</a></li>
-	  <li><a href="https://github.com/tateya/tateya.github.com/issues">フォーラム</a></li>
-	  <li><a href="https://github.com/tateya/tateya.github.com/wiki">Wiki</a></li>
+          <li><a href="https://github.com/tateya/tateya.github.com/issues">フォーラム</a></li>
+          <li><a href="https://github.com/tateya/tateya.github.com/wiki">Wiki</a></li>
         </ul>
       </div>
     </div>

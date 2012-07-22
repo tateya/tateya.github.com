@@ -10,13 +10,13 @@
     </xsl:processing-instruction>
     <html xml:lang="ja">
       <head>
-	<title>sitemap.xml</title>
+        <title>sitemap.xml</title>
       </head>
       <body>
-	<h1>sitemap.xml</h1>
-	<ul>
-	  <xsl:apply-templates select="sitemap:url"/>
-	</ul>
+        <h1>sitemap.xml</h1>
+        <ul>
+          <xsl:apply-templates select="sitemap:url"/>
+        </ul>
         <aside>
           <section>
             <h1>サイト内部検索</h1>
@@ -26,7 +26,7 @@
                 <input id="search-field" type="search"/>
                 <button type="submit">検索</button>
               </fieldset>
-	    </form>
+            </form>
           </section>
         </aside>
       </body>
