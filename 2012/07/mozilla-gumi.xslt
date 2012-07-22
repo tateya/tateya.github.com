@@ -63,6 +63,8 @@
       <xsl:if test="$page-modified">
 	<meta content="{$page-modified}" name="dcterms.modified"/>
       </xsl:if>
+      <link href="/info/staff" rel="author"/>
+      <link href="/info" rel="help"/>
       <xsl:apply-templates select="xhtml5:link"/>
       <link href="/LICENSE" rel="license" type="text/plain"/>
       <link href="/2012/06/mozilla-gumi.css" rel="stylesheet" type="text/css"/>
