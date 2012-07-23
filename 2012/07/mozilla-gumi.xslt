@@ -61,23 +61,13 @@
   <xsl:template match="xhtml5:head">
     <xsl:param name="page-title"/>
     <xsl:param name="site-home" select="false()"/>
-    <xsl:param name="generator" select="system-property('xsl:vendor')"/>
     <head>
-      <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-      <meta content="text/css" http-equiv="Content-Style-Type"/>
-      <meta content="application/javascript" http-equiv="Content-Script-Type"/>
-      <xsl:if test="$generator">
-        <meta content="{$generator}" name="generator"/>
-      </xsl:if>
-      <xsl:apply-templates select="xhtml5:meta"/>
-      <xsl:if test="$page-modified">
-        <meta content="{$page-modified}" name="dcterms.modified"/>
-      </xsl:if>
-      <link href="/info/staff" rel="author"/>
-      <link href="/info" rel="help"/>
-      <xsl:apply-templates select="xhtml5:link"/>
-      <link href="/LICENSE" rel="license" type="text/plain"/>
-      <link href="/2012/06/mozilla-gumi.css" rel="stylesheet" type="text/css"/>
+      <xsl:call-template name="meta-elements">
+        <xsl:with-param name="elements" select="xhtml5:meta"/>
+      </xsl:call-template>
+      <xsl:call-template name="link-elements">
+        <xsl:with-param name="elements" select="xhtml5:link"/>
+      </xsl:call-template>
       <title>
         <xsl:value-of select="$site-title"/>
         <xsl:if test="not($site-home)">
@@ -86,6 +76,30 @@
         </xsl:if>
       </title>
     </head>
+  </xsl:template>
+
+  <xsl:template name="meta-elements">
+    <xsl:param name="elements"/>
+    <xsl:param name="generator" select="system-property('xsl:vendor')"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="text/css" http-equiv="Content-Style-Type"/>
+    <meta content="application/javascript" http-equiv="Content-Script-Type"/>
+    <xsl:if test="$generator">
+      <meta content="{$generator}" name="generator"/>
+    </xsl:if>
+    <xsl:apply-templates select="$elements"/>
+    <xsl:if test="$page-modified">
+      <meta content="{$page-modified}" name="dcterms.modified"/>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template name="link-elements">
+    <xsl:param name="elements"/>
+    <link href="/info/staff" rel="author"/>
+    <link href="/info" rel="help"/>
+    <xsl:apply-templates select="$elements"/>
+    <link href="/LICENSE" rel="license" type="text/plain"/>
+    <link href="/2012/06/mozilla-gumi.css" rel="stylesheet" type="text/css"/>
   </xsl:template>
 
   <xsl:template match="xhtml5:meta|xhtml5:link">
