@@ -23,6 +23,11 @@
 
   <xsl:template match="/">
     <html>
+      <xsl:if test="$debug">
+        <xsl:attribute name="id">
+          <xsl:text>debug-mode</xsl:text>
+        </xsl:attribute>
+      </xsl:if>
       <xsl:if test="$root-language">
         <xsl:attribute name="xml:lang">
           <xsl:value-of select="$root-language"/>

@@ -10,7 +10,7 @@ all: build
 build: $(OUTS)
 
 %.html: %.xhtml
-	xsltproc --stringparam page-modified $(shell date -r $< -u +"%Y-%m-%dT%H:%M:%SZ") ./2012/07/mozilla-gumi.xslt $< > $@
+	xsltproc --param debug "false()" --stringparam page-modified $(shell date -r $< -u +"%Y-%m-%dT%H:%M:%SZ") ./2012/07/mozilla-gumi.xslt $< > $@
 	touch -c -m -r $< $@
 
 test: validate
