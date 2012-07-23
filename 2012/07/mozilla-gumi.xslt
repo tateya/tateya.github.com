@@ -7,6 +7,7 @@
   <xsl:output cdata-section-elements="pre script style" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" encoding="UTF-8" indent="no" media-type="text/html" method="xml" omit-xml-declaration="no" standalone="no" version="1.0"/>
   <xsl:strip-space elements="*"/>
 
+  <xsl:param name="debug" select="true()"/>
   <xsl:param name="root-language" select="/xhtml5:html/@xml:lang"/>
   <xsl:param name="site-title">
     <xsl:choose>
@@ -93,9 +94,18 @@
   </xsl:template>
 
   <xsl:template match="xhtml5:body">
+    <xsl:param name="level" select="2"/>
     <div class="article">
-      <xsl:apply-templates mode="node-walker" select="*|@*|text()|comment()">
-        <xsl:with-param name="level" select="2"/>
+      <xsl:apply-templates mode="node-walker" select="xhtml5:nav">
+        <xsl:with-param name="level" select="$level"/>
+      </xsl:apply-templates>
+      <div class="contents">
+        <xsl:apply-templates mode="node-walker" select="*[not(local-name() = 'nav' or local-name() = 'aside')]|@*|text()|comment()">
+          <xsl:with-param name="level" select="$level"/>
+        </xsl:apply-templates>
+      </div>
+      <xsl:apply-templates mode="node-walker" select="xhtml5:aside">
+        <xsl:with-param name="level" select="$level"/>
       </xsl:apply-templates>
     </div>
   </xsl:template>

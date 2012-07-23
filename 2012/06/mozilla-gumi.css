@@ -149,60 +149,65 @@ body > .header .nav li a {
   content: " | ";
 }
 
-.article > h2 {
+.contents {
+  float: left;
+  width: 70%;
+}
+
+.contents h2 {
   margin: 1em 1em 0 .77em;
   font-size: 1.3em;
 }
 
-.article > p {
+.contents > p {
   margin: 0 1em;
   padding: 0;
 }
 
-.article > .nav + p {
+.contents > p:first-child {
   margin-top: 1em;
 }
 
-.article > .section {
+.contents > .section {
   margin: 1em;
   border-top: thin dashed #666;
 }
 
-.article > .section > h1 {
+.contents > .section > h1 {
   margin: 1em 0;
   font-size: 1.3em;
 }
 
-.article > h2 ~ .section > h3 {
+.contents h2 ~ .section > h3 {
   font-size: 1.2em;
 }
 
-.article > .section > .section > h4 {
+.contents > .section > .section > h4 {
   border-bottom: thin solid black;
   font-size: 1em;
 }
 
-.article > .section p {
+.contents > .section p {
   margin: 0;
 }
 
-.article > .section .figure {
+.contents > .section .figure {
   float: right;
   width: 8em;
   margin: 1em 2em;
 }
 
-.article > .section .figure ~ *:last-child {
+.contents > .section .figure ~ *:last-child {
   text-align: right;
 }
 
-.article > .section .figure ~ *:last-child::after {
+.contents > .section .figure ~ *:last-child::after {
   display: block;
   content: "";
   clear: both;
 }
 
-.article > .section .nav > p:last-child {
+.contents > .section .nav > p:last-child {
   text-align: right;
 }
 
