@@ -87,7 +87,7 @@
     <xsl:if test="$generator">
       <meta content="{$generator}" name="generator"/>
     </xsl:if>
-    <xsl:apply-templates select="$elements"/>
+    <xsl:apply-templates mode="node-walker" select="$elements"/>
     <xsl:if test="$page-modified">
       <meta content="{$page-modified}" name="dcterms.modified"/>
     </xsl:if>
@@ -97,19 +97,9 @@
     <xsl:param name="elements"/>
     <link href="/info/staff" rel="author"/>
     <link href="/info" rel="help"/>
-    <xsl:apply-templates select="$elements"/>
+    <xsl:apply-templates mode="node-walker" select="$elements"/>
     <link href="/LICENSE" rel="license" type="text/plain"/>
     <link href="/2012/06/mozilla-gumi.css" rel="stylesheet" type="text/css"/>
-  </xsl:template>
-
-  <xsl:template match="xhtml5:meta|xhtml5:link">
-    <xsl:element name="{local-name()}">
-      <xsl:for-each select="@*">
-        <xsl:attribute name="{name()}">
-          <xsl:value-of select="."/>
-        </xsl:attribute>
-      </xsl:for-each>
-    </xsl:element>
   </xsl:template>
 
   <xsl:template match="xhtml5:body">
@@ -135,6 +125,27 @@
       <xsl:apply-templates mode="node-walker" select="*|@*|text()|comment()">
         <xsl:with-param name="level" select="$level"/>
       </xsl:apply-templates>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="xhtml5:link|xhtml5:script|xhtml5:style" mode="node-walker">
+    <xsl:param name="type">
+      <xsl:choose>
+        <xsl:when test="local-name() = 'script' and (not(@src) or contains(@src, '.js'))">
+          <xsl:text>application/javascript</xsl:text>
+        </xsl:when>
+        <xsl:when test="(local-name() = 'link' and @rel = 'stylesheet') or local-name() = 'style'">
+          <xsl:text>text/css</xsl:text>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:element name="{local-name()}">
+      <xsl:if test="not(@type) and $type">
+        <xsl:attribute name="type">
+          <xsl:value-of select="$type"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:apply-templates mode="node-walker" select="@*|text()|comment()"/>
     </xsl:element>
   </xsl:template>
 
